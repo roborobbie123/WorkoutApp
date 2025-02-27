@@ -3,7 +3,7 @@ import { useRef } from "react";
 const inputStyle = 'ml-5 bg-[#F5F9E9] rounded-sm text-black';
 
 export default function Workout({ onAdd }) {
-    const dateRef= useRef();
+    const dateRef = useRef();
     const exerciseRef = useRef();
     const weightRef = useRef();
     const repsRef = useRef();
@@ -32,15 +32,36 @@ export default function Workout({ onAdd }) {
 
 
     return (
-        <div className="flex bg-[#515751] justify-center">
+        <div className="flex bg-[#293241] justify-center">
             <div className="ml-5 flex flex-col my-5 gap-3 text-[#F5F9E9]">
                 <input ref={dateRef} type="date"></input>
-                <label>Exercise: <input ref={exerciseRef} className={inputStyle} type="text"></input></label>
-                <label>Weight: <input ref={weightRef} type="number" className={inputStyle}></input></label>
-                <label>Reps: <input ref={repsRef} type="number" className={inputStyle}></input></label>
-                <label>Sets: <input ref={setsRef} type="number" className={inputStyle}></input></label>
-                <label>Rest: <input ref={restRef} type="number" className={inputStyle}></input></label>
-                <button onClick={handleAdd} className='bg-[#F5F9E9] text-black px-5 py-1 rounded-md hover:bg-[#3b3a37] hover:text-white text-lg shadow-2xl'>Save</button>
+
+                <div className="flex justify-between">
+                    <label>Exercise:</label>
+                    <input ref={exerciseRef} className={inputStyle} type="text"></input>
+                </div>
+
+                <div className="flex items-center justify-between">
+                    <label>Weight (lbs):</label>
+                    <input ref={weightRef} type="number" className={inputStyle}></input>
+                </div>
+
+                <div className="flex items-center justify-between">
+                    <label>Reps:</label>
+                    <input ref={repsRef} type="number" className={inputStyle}></input>
+                </div>
+
+                <div className="flex items-center justify-between">
+                    <label>Sets:</label>
+                    <input ref={setsRef} type="number" className={inputStyle}></input>
+                </div>
+
+                <div className="flex items-center justify-between">
+                    <label>Rest (min):</label>
+                    <input ref={restRef} type="number" className={inputStyle}></input>
+                </div>
+
+                <button onClick={handleAdd} className='bg-[#F5F9E9] text-black px-5 py-1 rounded-md hover:bg-[#3b3a37] hover:text-white text-lg shadow-2xl'>Add</button>
             </div>
         </div>
     );
